@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <v-app>
+      <div class="pt-10 d-flex justify-center align-items-stretch">
+        <control></control>
+        <results></results>
+      </div>
+    </v-app>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import Control from "./components/control";
+import Results from "./components/results";
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Results,
+    Control
+  },
+  created() {
+    this.$store.dispatch('initData')
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
